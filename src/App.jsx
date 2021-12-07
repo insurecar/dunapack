@@ -15,7 +15,7 @@ export const App = () => {
   const [dataLength, setDataLength] = useState(0);
   const [localState, setLocalState] = useState([]);
   const [clearData, setClearData] = useState(false);
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(9);
 
   const [countOfCheckedElement, setCountOfCheckedElement] = useState(0);
   const [visibleLoader, setVisibleLoader] = useState(false);
@@ -140,6 +140,7 @@ export const App = () => {
           Повторити обрані замовлення
         </button>
       </div>
+      <div className="box__title-history">За останні 90 днів</div>
 
       <table className="table">
         <thead>
@@ -172,7 +173,7 @@ export const App = () => {
       </table>
       <div className={classesForDownloadMore}>
         <button
-          onClick={() => setCount(count + 1)}
+          onClick={() => setCount(count + 9)}
           disabled={dataLength <= count}
         >
           <div>

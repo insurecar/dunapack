@@ -13,6 +13,7 @@ export const Item = ({
   clearData,
   handleDesireDate,
 }) => {
+  console.log("ELEM", elem);
   const [checked, setChecked] = useState(false);
   const [inputValueOfCount, setInputValueOfCount] = useState("");
   const [inputSelectOfAddress, setInputSelectOfAddress] = useState("");
@@ -34,6 +35,16 @@ export const Item = ({
   // }, [options.length]);
 
   // console.log("options", options);
+  useEffect(() => {
+    setChecked(false);
+    setInputValueOfCount("");
+  }, [clearData]);
+
+  useEffect(() => {
+    setInputValueOfCount(elem.count);
+    setInputSelectOfAddress(elem.address[0]);
+    alert();
+  }, []);
 
   const handleInputOfCount = ({ target: { value } }, id) => {
     if (value.length < 7) {
@@ -54,16 +65,6 @@ export const Item = ({
 
     // console.log("%c ID", "background: green; padding: 20px", id);
   };
-
-  useEffect(() => {
-    setChecked(false);
-    setInputValueOfCount("");
-  }, [clearData]);
-
-  useEffect(() => {
-    setInputValueOfCount(elem.count);
-    setInputSelectOfAddress(elem.address[0]);
-  }, [elem]);
 
   const handleDesireDateItem = (date) => {
     console.log("ITEM DATE", date);
@@ -112,10 +113,10 @@ export const Item = ({
             value={inputSelectOfAddress}
             onChange={(e) => handleChangeOfSelectAddress(e, elem.id)}
             className="selected"
-            disable
           />
         ) : (
-          <div>{inputSelectOfAddress.value}</div>
+          <div>{elem.address[0].value}</div>
+          // <div>{inputSelectOfAddress.value}</div>
         )}
       </td>
       <td>
