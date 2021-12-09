@@ -1,4 +1,4 @@
-export const options = [
+export const address = [
   {
     value: "chocolate",
     label: "м. Львів вул. Залізнична, буд. 65",

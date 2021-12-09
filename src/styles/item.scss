@@ -116,7 +116,7 @@
 .item-tr td:last-child {
   .wrapper {
     width: 130px;
-    height: 40px;
+    height: 40px !important;
     border: 1px solid #dde9ee;
     box-sizing: border-box;
     display: flex;

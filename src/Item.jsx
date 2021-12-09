@@ -12,8 +12,9 @@ export const Item = ({
   handleSelect,
   clearData,
   handleDesireDate,
+  address,
 }) => {
-  console.log("ELEM", elem);
+  // console.log("ELEM", elem);
   const [checked, setChecked] = useState(false);
   const [inputValueOfCount, setInputValueOfCount] = useState("");
   const [inputSelectOfAddress, setInputSelectOfAddress] = useState("");
@@ -26,7 +27,9 @@ export const Item = ({
   const classes = cn("item", { "item-checked ": checked });
 
   const checkBoxHandler = () => {
-    handleCheckbox(elem);
+    handleCheckbox(
+      JSON.parse(JSON.stringify({ ...elem, address: elem.address[0].value }))
+    );
     setChecked((state) => !state);
   };
 
@@ -42,8 +45,8 @@ export const Item = ({
 
   useEffect(() => {
     setInputValueOfCount(elem.count);
-    setInputSelectOfAddress(elem.address[0]);
-    alert();
+    // setInputSelectOfAddress(elem.address[0]);
+    setInputSelectOfAddress(address[0]);
   }, []);
 
   const handleInputOfCount = ({ target: { value } }, id) => {
@@ -53,25 +56,21 @@ export const Item = ({
     }
   };
 
-  const handleChangeOfSelectAddress = (value, id) => {
-    console.log("VALUE ITEM", value);
+  const handleChangeOfSelectAddress = (value, id, elem) => {
+    // console.log("SELECT ELEM", elem);
+    // console.log("VALUE ITEM", value);
     setInputSelectOfAddress(value);
     handleSelect(value, id);
-    // console.log(
-    //   "%c VALUE Select",
-    //   "background: coral; padding: 20px; border: 3px solid red",
-    //   value
-    // );
-
-    // console.log("%c ID", "background: green; padding: 20px", id);
   };
 
   const handleDesireDateItem = (date) => {
-    console.log("ITEM DATE", date);
+    // console.log("ITEM DATE", date);
     setDesireDate(date);
     handleDesireDate(date, elem.id);
   };
 
+  // console.log("SELECT INPUT", inputSelectOfAddress);
+  console.log("ELEM BEFORE RETURn", elem);
   return (
     <tr key={elem.id} className="item-tr">
       <td>
@@ -110,12 +109,13 @@ export const Item = ({
         {checked ? (
           <Select
             options={elem.address}
+            // options={address}
             value={inputSelectOfAddress}
-            onChange={(e) => handleChangeOfSelectAddress(e, elem.id)}
+            onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
             className="selected"
           />
         ) : (
-          <div>{elem.address[0].value}</div>
+          <div>{elem.address[0].label}</div>
           // <div>{inputSelectOfAddress.value}</div>
         )}
       </td>

@@ -9,6 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import check from "./styles/icons/inform.png";
 import { sendData } from "./fetching";
+import { address } from "./arrayOfSelect";
+import moment from "moment";
 
 export const App = () => {
   const [data, setData] = useState([]);
@@ -84,11 +86,12 @@ export const App = () => {
 
   console.log("LOCAL STATE", localState);
   const handleSelect = (value, id) => {
-    console.log(11111);
-    localState.map((elem) =>
-      elem.id === id ? (elem.address = value.label) : elem
+    console.log("HENDLE SELECT WORK", value, id);
+    localState.map((item) =>
+      item.id === id ? (item.address = value.label) : item.address[0].value
     );
   };
+  console.log("localState", localState);
 
   const handleSetData = () => {
     setLocalState([]);
@@ -98,11 +101,15 @@ export const App = () => {
 
   const handleDesireDate = (date, id) => {
     localState.map((elem) =>
-      elem.id === id ? (elem.desiredDate = JSON.stringify(date)) : elem
+      elem.id === id
+        ? (elem.desiredDate = moment(date).format("DD-MM-yyyy"))
+        : elem
     );
     console.log("APP ID ELEMENT", date);
     console.log("APP ID ELEMENT", id);
   };
+
+  console.log("localState", localState);
 
   return (
     <div className="box">
@@ -166,6 +173,7 @@ export const App = () => {
                 clearData={clearData}
                 key={elem.id}
                 handleDesireDate={handleDesireDate}
+                address={address}
               />
             );
           })}

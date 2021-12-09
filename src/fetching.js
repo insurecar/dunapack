@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// export const fetchs = () =>
+//   axios.get(`https://www.dunapack-tavria.com/ajax/profile/historyOrders`);
+
 export const fetchs = () =>
-  axios.get(`https://www.dunapack-tavria.com/ajax/profile/historyOrders`);
+  axios.get(`https://618cfaa2edab980017fd512c.mockapi.io/duna-order`);
 
 export const sendData = (data) =>
   axios({
