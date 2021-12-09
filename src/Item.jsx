@@ -4,6 +4,7 @@ import moment from "moment";
 import Select from "react-select";
 import calendar from "../src/styles/icons/calendar.png";
 import DatePicker from "react-datepicker";
+import Scrollbar from "smooth-scrollbar";
 
 export const Item = ({
   elem,
@@ -46,7 +47,7 @@ export const Item = ({
   useEffect(() => {
     setInputValueOfCount(elem.count);
     // setInputSelectOfAddress(elem.address[0]);
-    setInputSelectOfAddress(address[0]);
+    setInputSelectOfAddress(elem.address[0]);
   }, []);
 
   const handleInputOfCount = ({ target: { value } }, id) => {
@@ -64,13 +65,28 @@ export const Item = ({
   };
 
   const handleDesireDateItem = (date) => {
+    console.log("DATEshdbcnjsdbvhjsdnbvjk", date);
     // console.log("ITEM DATE", date);
     setDesireDate(date);
     handleDesireDate(date, elem.id);
   };
 
-  // console.log("SELECT INPUT", inputSelectOfAddress);
-  console.log("ELEM BEFORE RETURn", elem);
+  const addScrollBar = (e) => {
+    // setTimeout(() => {
+    //   console.log(document.querySelector(".css-26l3qy-menu"));
+    //   Scrollbar.init(
+    //     document.querySelector(".css-26l3qy-menu > div:first-child"),
+    //     {
+    //       alwaysShowTracks: true,
+    //       wheelEventTarget: document.querySelector(".css-26l3qy-menu"),
+    //     }
+    //   );
+    // }, 2000);
+  };
+
+  // console.log("ДАТА ЗАМОВЛЕННЯ", moment(1638914400000).format("DD-MM-yy"));
+
+  // console.log("ELEM BEFORE RETURn", elem);
   return (
     <tr key={elem.id} className="item-tr">
       <td>
@@ -78,7 +94,7 @@ export const Item = ({
           <input type="checkbox" onChange={checkBoxHandler} checked={checked} />
         </label>
       </td>
-      <td>{elem.dateOrdered}</td>
+      <td>{moment(elem.dateOrdered * 1000).format("DD-MM-YY")}</td>
       <td>{elem.name}</td>
       <td className="item-tr__count">
         {checked ? (
@@ -110,12 +126,21 @@ export const Item = ({
           <Select
             options={elem.address}
             // options={address}
+            // menuIsOpen={true}
             value={inputSelectOfAddress}
             onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
             className="selected"
+            onMenuOpen={addScrollBar}
           />
         ) : (
-          <div>{elem.address[0].label}</div>
+          // <div className="address-of-delivery">{elem.address[0].label}</div>
+          <div className="disabled-select">
+            <Select
+              // options={address}
+              value={elem.address[0]}
+              className="selected"
+            />
+          </div>
           // <div>{inputSelectOfAddress.value}</div>
         )}
       </td>
@@ -135,10 +160,12 @@ export const Item = ({
                 selected={desireDate}
                 onChange={(date) => handleDesireDateItem(date)}
                 disabled={!checked}
-                dateFormat="dd-MM-yyyy"
+                dateFormat="dd-MM-yy"
               />
             ) : (
-              <div className="wrapper__calendar-static">{elem.desiredDate}</div>
+              <div className="wrapper__calendar-static">
+                {moment(elem.desiredDate * 1000).format("DD-MM-YY")}
+              </div>
             )}
           </div>
         </div>

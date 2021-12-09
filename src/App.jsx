@@ -46,13 +46,10 @@ export const App = () => {
   useEffect(() => {
     setVisibleLoader(false);
     fetchs().then((resp) => {
-      // console.log("FETCH DATA", resp.data);
       setVisibleLoader(true);
       setData(resp.data);
       setDataLength(resp.data.length);
     });
-
-    // fetchs().then((resp) => console.log(resp));
   }, []);
 
   useEffect(() => {
@@ -84,14 +81,11 @@ export const App = () => {
     );
   };
 
-  console.log("LOCAL STATE", localState);
   const handleSelect = (value, id) => {
-    console.log("HENDLE SELECT WORK", value, id);
     localState.map((item) =>
       item.id === id ? (item.address = value.label) : item.address[0].value
     );
   };
-  console.log("localState", localState);
 
   const handleSetData = () => {
     setLocalState([]);
@@ -105,11 +99,8 @@ export const App = () => {
         ? (elem.desiredDate = moment(date).format("DD-MM-yyyy"))
         : elem
     );
-    console.log("APP ID ELEMENT", date);
-    console.log("APP ID ELEMENT", id);
+    console.log("localState", localState);
   };
-
-  console.log("localState", localState);
 
   return (
     <div className="box">
@@ -133,6 +124,8 @@ export const App = () => {
         </div>
       </div>
       <div className={classes}>
+        <div className="box__title-history">За останні 90 днів</div>
+
         <button
           onClick={() => {
             notify();
@@ -147,7 +140,6 @@ export const App = () => {
           Повторити обрані замовлення
         </button>
       </div>
-      <div className="box__title-history">За останні 90 днів</div>
 
       <table className="table">
         <thead>

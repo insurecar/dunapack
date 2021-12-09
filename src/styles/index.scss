@@ -1,6 +1,7 @@
 .box {
   margin: 0 auto;
   width: 1180px;
+  padding-top: 80px;
 
   &__title {
     color: red;
@@ -110,6 +111,7 @@ tfoot td {
   display: flex;
   justify-content: center;
   margin-top: 30px;
+  margin-bottom: 60px;
   font-family: Roboto-Light;
 
   button {
@@ -123,6 +125,7 @@ tfoot td {
       width: 15px;
       height: 15px;
       margin-right: 11px;
+      font-size: 16px;
 
       img {
         width: 100%;
@@ -140,7 +143,8 @@ tfoot td {
 .box__send-order {
   cursor: pointer;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: flex-end;
   @include fluid-size("margin-top", 385px, 1920px, 20px, 30px);
 
   button {
@@ -210,4 +214,8 @@ button[type="button"].Toastify__close-button.Toastify__close-button--light {
   color: #43727f;
   font-family: Roboto-Light;
   font-size: 12px;
+}
+
+.table td {
+  vertical-align: middle !important;
 }

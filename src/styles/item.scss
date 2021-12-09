@@ -2,6 +2,7 @@
   width: 24px;
   height: 24px;
   border: 1px solid #dde9ee;
+  display: block;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -105,15 +106,12 @@
   }
 }
 
-.css-319lph-ValueContainer .css-qc6sy-singleValue {
-  color: #43727f;
-}
-
 .item-tr__hide {
   display: none;
 }
 
 .item-tr td:last-child {
+  vertical-align: middle;
   .wrapper {
     width: 130px;
     height: 40px !important;
@@ -142,7 +140,6 @@
 
     &__calendar {
       width: 90px;
-      height: 100%;
       background: #fff;
 
       &-static {
@@ -154,4 +151,78 @@
       }
     }
   }
+}
+
+.react-datepicker__input-container input {
+  padding: 0;
+}
+
+.css-qc6sy-singleValue {
+  color: #43727f !important;
+}
+
+.css-1s2u09g-control {
+  height: 40px !important;
+}
+
+.address-of-delivery {
+  border: 1px solid #dde9ee;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disabled-select {
+  pointer-events: none;
+}
+
+.css-tlfecz-indicatorContainer,
+.css-1gtu0rj-indicatorContainer {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    display: none !important;
+  }
+
+  &:after {
+    content: "";
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-top: 8px solid #5593ad;
+  }
+}
+
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+.react-datepicker__triangle::after,
+.react-datepicker__triangle::before {
+  content: "";
+  display: none !important;
+}
+
+.react-datepicker-popper {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  left: -152px !important;
+}
+
+.css-26l3qy-menu > div:first-child {
+  height: 290px;
+  overflow: auto;
+}
+
+.wrapper__calendar-static {
+  font-size: 14px;
+}
+
+.css-319lph-ValueContainer {
+  font-size: 14px;
 }
