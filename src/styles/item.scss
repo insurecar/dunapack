@@ -59,7 +59,7 @@
     width: 100px;
     height: 40px;
     text-align: center;
-    border: 1px solid #dde9ee;
+    border: 2px solid #dde9ee;
     box-sizing: border-box;
     font-family: Roboto-Bold;
     color: #43727f;
@@ -122,7 +122,7 @@
     &__icon {
       border-right: 1px solid #dde9ee;
       width: 40px;
-      height: 40px;
+      height: 38px;
       box-sizing: border-box;
       padding: 8px;
 
@@ -244,4 +244,14 @@
 
 .item-tr__count-inputCountOfOrder {
   margin-left: -5px;
+}
+
+.css-1s2u09g-control {
+  border: 2px solid #dde9ee !important;
+}
+
+.last-child {
+  border: 2px solid #dde9ee !important;
+
+  box-sizing: border-box;
 }

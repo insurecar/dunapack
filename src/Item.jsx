@@ -28,6 +28,8 @@ export const Item = ({
 
   const classes = cn("item", { "item-checked ": checked });
 
+  const classNameBorderLastChild = cn("wrapper", { "last-child": checked });
+
   const checkBoxHandler = () => {
     handleCheckbox(
       JSON.parse(JSON.stringify({ ...elem, address: elem.address[0].value }))
@@ -144,7 +146,7 @@ export const Item = ({
         )}
       </td>
       <td>
-        <div className="wrapper">
+        <div className={classNameBorderLastChild}>
           <div className="wrapper__icon">
             <div className="wrapper__icon-center">
               <img src={calendar} alt="" />
