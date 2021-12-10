@@ -80,12 +80,11 @@ export const Item = ({
 
   const addScrollBar = (e) => {
     // setTimeout(() => {
-    //   console.log(document.querySelector(".css-26l3qy-menu"));
     //   Scrollbar.init(document.querySelector(".css-4ljt47-MenuList"), {
     //     alwaysShowTracks: true,
     //     wheelEventTarget: document.querySelector(".css-4ljt47-MenuList"),
     //   });
-    // }, 1000);
+    // }, 0);
   };
 
   return (
@@ -128,7 +127,7 @@ export const Item = ({
             <Select
               options={elem.address}
               // options={address}
-              // menuIsOpen={true}
+              menuIsOpen={true}
               value={inputSelectOfAddress}
               onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
               className="selected"

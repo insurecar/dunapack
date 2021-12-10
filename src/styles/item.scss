@@ -213,16 +213,6 @@
   padding-bottom: 0 !important;
 }
 
-.css-26l3qy-menu {
-  // max-height: 290px;
-  // overflow: auto;
-}
-
-.css-4ljt47-MenuList {
-  // max-height: none !important;
-  // overflow: hidden !important;
-}
-
 .wrapper__calendar-static {
   font-size: 14px;
 }
@@ -254,4 +244,30 @@
   border: 2px solid #dde9ee !important;
 
   box-sizing: border-box;
+}
+
+// .css-4ljt47-MenuList {
+//   height: 290px;
+//   overflow-y: scroll;
+//   scrollbar-color: rebeccapurple green;
+// }
+
+// .css-4ljt47-MenuList {
+//   height: 290px;
+//   overflow-y: scroll !important;
+//   scrollbar-color: red !important;
+// }
+
+.css-4ljt47-MenuList::-webkit-scrollbar {
+  width: 3px; /* width of the entire scrollbar */
+}
+
+.css-4ljt47-MenuList::-webkit-scrollbar-track {
+  // background: orange;
+}
+
+.css-4ljt47-MenuList::-webkit-scrollbar-thumb {
+  background-color: #43727f; /* color of the scroll thumb */
+  // border-radius: 20px;
+  // border: 3px solid #8ca5ad;
 }
