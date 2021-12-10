@@ -246,7 +246,7 @@
   margin-left: -5px;
 }
 
-.css-1s2u09g-control {
+.css-1s2u09g-control:not(.disabled-select .css-1s2u09g-control) {
   border: 2px solid #dde9ee !important;
 }
 
