@@ -123,16 +123,18 @@ export const Item = ({
       <td>{elem.countOfColors}</td>
       <td>
         {checked ? (
-          <Select
-            options={elem.address}
-            // options={address}
-            // menuIsOpen={true}
-            value={inputSelectOfAddress}
-            onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
-            className="selected"
-            onMenuOpen={addScrollBar}
-            isSearchable={false}
-          />
+          <div className="active-select-address">
+            <Select
+              options={elem.address}
+              // options={address}
+              // menuIsOpen={true}
+              value={inputSelectOfAddress}
+              onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
+              className="selected"
+              onMenuOpen={addScrollBar}
+              isSearchable={false}
+            />
+          </div>
         ) : (
           // <div className="address-of-delivery">{elem.address[0].label}</div>
           <div className="disabled-select">
