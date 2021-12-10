@@ -127,7 +127,7 @@ export const Item = ({
             <Select
               options={elem.address}
               // options={address}
-              // menuIsOpen={true}
+              menuIsOpen={true}
               value={inputSelectOfAddress}
               onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
               className="selected"

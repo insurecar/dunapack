@@ -82,7 +82,7 @@
     color: #d91f1f;
     font-family: Roboto-Light;
     @include fluid-type(385px, 1920px, 12px, 14px);
-    @include fluid-size("lien-height", 385px, 1920px, 14px, 16px);
+    @include fluid-size("line-height", 385px, 1920px, 14px, 16px);
     padding-top: 4px;
     text-align: left;
     display: inline-block;
@@ -258,16 +258,16 @@
 //   scrollbar-color: red !important;
 // }
 
-.css-4ljt47-MenuList::-webkit-scrollbar {
-  width: 3px; /* width of the entire scrollbar */
+#react-select-2-listbox > div::-webkit-scrollbar {
+  width: 3px !important; /* width of the entire scrollbar */
 }
 
-.css-4ljt47-MenuList::-webkit-scrollbar-track {
+#react-select-2-listbox > div::-webkit-scrollbar-track {
   // background: orange;
 }
 
-.css-4ljt47-MenuList::-webkit-scrollbar-thumb {
-  background-color: #43727f; /* color of the scroll thumb */
+#react-select-2-listbox > div::-webkit-scrollbar-thumb {
+  background-color: #43727f !important; /* color of the scroll thumb */
   // border-radius: 20px;
   // border: 3px solid #8ca5ad;
 }
