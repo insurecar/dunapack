@@ -3,8 +3,10 @@ import cn from "classnames";
 import moment from "moment";
 import Select from "react-select";
 import calendar from "../src/styles/icons/calendar.png";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import Scrollbar from "smooth-scrollbar";
+import el from "date-fns/locale/uk"; // the locale you want
+registerLocale("uk", el);
 
 export const Item = ({
   elem,
@@ -15,7 +17,6 @@ export const Item = ({
   handleDesireDate,
   address,
 }) => {
-  // console.log("ELEM", elem);
   const [checked, setChecked] = useState(false);
   const [inputValueOfCount, setInputValueOfCount] = useState("");
   const [inputSelectOfAddress, setInputSelectOfAddress] = useState("");
@@ -58,15 +59,12 @@ export const Item = ({
   };
 
   const handleChangeOfSelectAddress = (value, id, elem) => {
-    // console.log("SELECT ELEM", elem);
-    // console.log("VALUE ITEM", value);
     setInputSelectOfAddress(value);
     handleSelect(value, id);
   };
 
   const handleDesireDateItem = (date) => {
     console.log("DATEshdbcnjsdbvhjsdnbvjk", date);
-    // console.log("ITEM DATE", date);
     setDesireDate(date);
     handleDesireDate(date, elem.id);
   };
@@ -74,19 +72,13 @@ export const Item = ({
   const addScrollBar = (e) => {
     // setTimeout(() => {
     //   console.log(document.querySelector(".css-26l3qy-menu"));
-    //   Scrollbar.init(
-    //     document.querySelector(".css-26l3qy-menu > div:first-child"),
-    //     {
-    //       alwaysShowTracks: true,
-    //       wheelEventTarget: document.querySelector(".css-26l3qy-menu"),
-    //     }
-    //   );
-    // }, 2000);
+    //   Scrollbar.init(document.querySelector(".css-4ljt47-MenuList"), {
+    //     alwaysShowTracks: true,
+    //     wheelEventTarget: document.querySelector(".css-4ljt47-MenuList"),
+    //   });
+    // }, 1000);
   };
 
-  // console.log("ДАТА ЗАМОВЛЕННЯ", moment(1638914400000).format("DD-MM-yy"));
-
-  // console.log("ELEM BEFORE RETURn", elem);
   return (
     <tr key={elem.id} className="item-tr">
       <td>
@@ -131,6 +123,7 @@ export const Item = ({
             onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
             className="selected"
             onMenuOpen={addScrollBar}
+            isSearchable={false}
           />
         ) : (
           // <div className="address-of-delivery">{elem.address[0].label}</div>
@@ -161,6 +154,7 @@ export const Item = ({
                 onChange={(date) => handleDesireDateItem(date)}
                 disabled={!checked}
                 dateFormat="dd-MM-yy"
+                locale={el}
               />
             ) : (
               <div className="wrapper__calendar-static">

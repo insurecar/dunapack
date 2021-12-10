@@ -214,9 +214,14 @@
   left: -152px !important;
 }
 
-.css-26l3qy-menu > div:first-child {
-  height: 290px;
-  overflow: auto;
+.css-26l3qy-menu {
+  // max-height: 290px;
+  // overflow: auto;
+}
+
+.css-4ljt47-MenuList {
+  // max-height: none !important;
+  // overflow: hidden !important;
 }
 
 .wrapper__calendar-static {
@@ -225,4 +230,8 @@
 
 .css-319lph-ValueContainer {
   font-size: 14px;
+}
+
+.react-datepicker__day--keyboard-selected {
+  color: #fff !important;
 }
