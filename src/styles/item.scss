@@ -59,7 +59,7 @@
     width: 100px;
     height: 40px;
     text-align: center;
-    border: 2px solid #dde9ee;
+    border: 1px solid #dde9ee;
     box-sizing: border-box;
     font-family: Roboto-Bold;
     color: #43727f;
@@ -240,4 +240,8 @@
 
 .download-more button {
   font-size: 16px;
+}
+
+.item-tr__count-inputCountOfOrder {
+  margin-left: -5px;
 }
