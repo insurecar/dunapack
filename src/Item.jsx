@@ -124,15 +124,12 @@ export const Item = ({
           <Select
             options={elem.address}
             // options={address}
-            // menuIsOpen={true}
+            menuIsOpen={true}
             value={inputSelectOfAddress}
             onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
             className="selected"
             onMenuOpen={addScrollBar}
             isSearchable={false}
-            components={{
-              IndicatorSeparator: () => null,
-            }}
           />
         ) : (
           // <div className="address-of-delivery">{elem.address[0].label}</div>

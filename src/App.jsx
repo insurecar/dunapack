@@ -17,14 +17,14 @@ export const App = () => {
   const [dataLength, setDataLength] = useState(0);
   const [localState, setLocalState] = useState([]);
   const [clearData, setClearData] = useState(false);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(9);
 
   const [countOfCheckedElement, setCountOfCheckedElement] = useState(0);
   const [visibleLoader, setVisibleLoader] = useState(false);
 
   const notify = () =>
     toast.info(
-      "Дякую, замовлення прийнято! Ваш менеджер вже сповіщений, будь ласка, очікуйте на зворотній зв'язок.!",
+      "Дякую, замовлення прийнято! Ваш менеджер вже сповіщений, будь ласка, очікуйте на зворотній зв'язок!",
       {
         icon: () => <img src={check} alt="inform" />,
       }
