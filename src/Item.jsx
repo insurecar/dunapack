@@ -51,6 +51,12 @@ export const Item = ({
     setInputSelectOfAddress(elem.address[0]);
   }, []);
 
+  useEffect(() => {
+    document
+      .querySelector(".react-datepicker__input-container input")
+      ?.setAttribute("readonly", "true");
+  });
+
   const handleInputOfCount = ({ target: { value } }, id) => {
     if (value.length < 7) {
       setInputValueOfCount(value);
@@ -124,6 +130,9 @@ export const Item = ({
             className="selected"
             onMenuOpen={addScrollBar}
             isSearchable={false}
+            components={{
+              IndicatorSeparator: () => null,
+            }}
           />
         ) : (
           // <div className="address-of-delivery">{elem.address[0].label}</div>
@@ -155,6 +164,7 @@ export const Item = ({
                 disabled={!checked}
                 dateFormat="dd-MM-yy"
                 locale={el}
+                popperPlacement="bottom-end"
               />
             ) : (
               <div className="wrapper__calendar-static">

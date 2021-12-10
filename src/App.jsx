@@ -17,7 +17,7 @@ export const App = () => {
   const [dataLength, setDataLength] = useState(0);
   const [localState, setLocalState] = useState([]);
   const [clearData, setClearData] = useState(false);
-  const [count, setCount] = useState(9);
+  const [count, setCount] = useState(2);
 
   const [countOfCheckedElement, setCountOfCheckedElement] = useState(0);
   const [visibleLoader, setVisibleLoader] = useState(false);
@@ -131,6 +131,10 @@ export const App = () => {
             notify();
             handleSetData();
             fetchs().then((resp) => setData(resp.data));
+            setTimeout(() => {
+              window.location.href =
+                "https://www.dunapack-tavria.com/osobystyy-kabinet";
+            }, 5000);
           }}
           disabled={
             !Boolean(countOfCheckedElement) || localState.some((el) => el.error)
