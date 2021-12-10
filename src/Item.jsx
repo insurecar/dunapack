@@ -5,6 +5,7 @@ import Select from "react-select";
 import calendar from "../src/styles/icons/calendar.png";
 import DatePicker, { registerLocale } from "react-datepicker";
 import Scrollbar from "smooth-scrollbar";
+import { Scrollbars } from "react-custom-scrollbars";
 import el from "date-fns/locale/uk"; // the locale you want
 registerLocale("uk", el);
 
