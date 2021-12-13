@@ -4,8 +4,6 @@ import moment from "moment";
 import Select from "react-select";
 import calendar from "../src/styles/icons/calendar.png";
 import DatePicker, { registerLocale } from "react-datepicker";
-import Scrollbar from "smooth-scrollbar";
-import { Scrollbars } from "react-custom-scrollbars";
 import el from "date-fns/locale/uk"; // the locale you want
 import { CurrencyInput } from "./CurrencyInput";
 registerLocale("uk", el);
@@ -39,11 +37,6 @@ export const Item = ({
     setChecked((state) => !state);
   };
 
-  // useEffect(() => {
-  //   setInputSelectOfAddress(options);
-  // }, [options.length]);
-
-  // console.log("options", options);
   useEffect(() => {
     setChecked(false);
     setInputValueOfCount("");
@@ -51,7 +44,6 @@ export const Item = ({
 
   useEffect(() => {
     setInputValueOfCount(elem.count);
-    // setInputSelectOfAddress(elem.address[0]);
     setInputSelectOfAddress(elem.address[0]);
   }, []);
 
@@ -77,15 +69,6 @@ export const Item = ({
     console.log("DATEshdbcnjsdbvhjsdnbvjk", date);
     setDesireDate(date);
     handleDesireDate(date, elem.id);
-  };
-
-  const addScrollBar = (e) => {
-    // setTimeout(() => {
-    //   Scrollbar.init(document.querySelector(".css-4ljt47-MenuList"), {
-    //     alwaysShowTracks: true,
-    //     wheelEventTarget: document.querySelector(".css-4ljt47-MenuList"),
-    //   });
-    // }, 0);
   };
 
   return (

@@ -109,27 +109,8 @@ export const App = () => {
         ? (elem.desiredDate = moment(date).format("DD-MM-yyyy"))
         : elem
     );
-    console.log("localState", localState);
   };
 
-  const maskInput = (value) => {
-    if (value.lenght === 6) {
-      SetMaska("999 999");
-    }
-    if (value.length === 5) {
-      SetMaska("99 999");
-    }
-    if (value.length === 4) {
-      SetMaska("9 999");
-    }
-    if (value.length >= 3 && value.length < 4) {
-      SetMaska("999");
-    }
-  };
-
-  // const maskTwo = maskInput(testValue);
-
-  console.log("localState", localState);
   return (
     <div className="box">
       <ToastContainer
@@ -167,7 +148,6 @@ export const App = () => {
           disabled={
             !Boolean(countOfCheckedElement) || localState.some((el) => el.error)
           }
-          // disabled={false}
         >
           Повторити обрані замовлення
         </button>
