@@ -7,6 +7,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import Scrollbar from "smooth-scrollbar";
 import { Scrollbars } from "react-custom-scrollbars";
 import el from "date-fns/locale/uk"; // the locale you want
+import { CurrencyInput } from "./CurrencyInput";
 registerLocale("uk", el);
 
 export const Item = ({
@@ -99,13 +100,22 @@ export const Item = ({
       <td className="item-tr__count">
         {checked ? (
           <>
-            <input
+            {/* <input
               className={cn("item-tr__count-inputCountOfOrder", {
                 "item-tr__count-inputCountOfOrder-error": elem.error,
               })}
               onChange={(e) => handleInputOfCount(e, elem.id)}
+            
+              value={new Intl.NumberFormat("ru-RU").format(inputValueOfCount)}
+             
+            /> */}
+            <CurrencyInput
+              type="text"
               value={inputValueOfCount}
-              type="number"
+              onChange={(e) => handleInputOfCount(e, elem.id)}
+              className={cn("item-tr__count-inputCountOfOrder", {
+                "item-tr__count-inputCountOfOrder-error": elem.error,
+              })}
             />
             {elem.error ? (
               <span className=" item-tr__count-showError">
@@ -126,23 +136,16 @@ export const Item = ({
           <div className="active-select-address">
             <Select
               options={elem.address}
-              // options={address}
-              menuIsOpen={true}
+              // menuIsOpen={true}
               value={inputSelectOfAddress}
               onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
               className="selected"
-              onMenuOpen={addScrollBar}
               isSearchable={false}
             />
           </div>
         ) : (
-          // <div className="address-of-delivery">{elem.address[0].label}</div>
           <div className="disabled-select">
-            <Select
-              // options={address}
-              value={elem.address[0]}
-              className="selected"
-            />
+            <Select value={elem.address[0]} className="selected" />
           </div>
           // <div>{inputSelectOfAddress.value}</div>
         )}

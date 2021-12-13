@@ -12,6 +12,11 @@ import { sendData } from "./fetching";
 import { address } from "./arrayOfSelect";
 import moment from "moment";
 
+import MaskedInput from "react-text-mask";
+import createNumberMask from "text-mask-addons/dist/createNumberMask";
+
+import InputMask from "react-input-mask";
+
 export const App = () => {
   const [data, setData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
@@ -21,6 +26,9 @@ export const App = () => {
 
   const [countOfCheckedElement, setCountOfCheckedElement] = useState(0);
   const [visibleLoader, setVisibleLoader] = useState(false);
+
+  const [testValue, setTestValue] = useState("");
+  const [maska, SetMaska] = useState("999");
 
   const notify = () =>
     toast.info(
@@ -66,10 +74,12 @@ export const App = () => {
   };
 
   const handleInput = (value, id) => {
+    console.log("value", value);
+    console.log("id", id);
     setLocalState(
       localState.map((elem) => {
         if (elem.id === id) {
-          elem.count = value;
+          elem.count = +value.replace(/\s+/g, "");
           if (!+elem.count) {
             elem.error = true;
           } else {
@@ -102,6 +112,24 @@ export const App = () => {
     console.log("localState", localState);
   };
 
+  const maskInput = (value) => {
+    if (value.lenght === 6) {
+      SetMaska("999 999");
+    }
+    if (value.length === 5) {
+      SetMaska("99 999");
+    }
+    if (value.length === 4) {
+      SetMaska("9 999");
+    }
+    if (value.length >= 3 && value.length < 4) {
+      SetMaska("999");
+    }
+  };
+
+  // const maskTwo = maskInput(testValue);
+
+  console.log("localState", localState);
   return (
     <div className="box">
       <ToastContainer
@@ -186,6 +214,7 @@ export const App = () => {
           Показати ще
         </button>
       </div>
+      <p></p>
     </div>
   );
 };
