@@ -4,7 +4,7 @@ import moment from "moment";
 import Select from "react-select";
 import calendar from "../src/styles/icons/calendar.png";
 import DatePicker, { registerLocale } from "react-datepicker";
-import el from "date-fns/locale/uk"; // the locale you want
+import el from "date-fns/locale/uk";
 import { CurrencyInput } from "./CurrencyInput";
 registerLocale("uk", el);
 
@@ -15,7 +15,6 @@ export const Item = ({
   handleSelect,
   clearData,
   handleDesireDate,
-  address,
 }) => {
   const [checked, setChecked] = useState(false);
   const [inputValueOfCount, setInputValueOfCount] = useState("");
@@ -83,15 +82,6 @@ export const Item = ({
       <td className="item-tr__count">
         {checked ? (
           <>
-            {/* <input
-              className={cn("item-tr__count-inputCountOfOrder", {
-                "item-tr__count-inputCountOfOrder-error": elem.error,
-              })}
-              onChange={(e) => handleInputOfCount(e, elem.id)}
-            
-              value={new Intl.NumberFormat("ru-RU").format(inputValueOfCount)}
-             
-            /> */}
             <CurrencyInput
               type="text"
               value={inputValueOfCount}
@@ -119,7 +109,6 @@ export const Item = ({
           <div className="active-select-address">
             <Select
               options={elem.address}
-              // menuIsOpen={true}
               value={inputSelectOfAddress}
               onChange={(e) => handleChangeOfSelectAddress(e, elem.id, elem)}
               className="selected"
@@ -130,7 +119,6 @@ export const Item = ({
           <div className="disabled-select">
             <Select value={elem.address[0]} className="selected" />
           </div>
-          // <div>{inputSelectOfAddress.value}</div>
         )}
       </td>
       <td>
@@ -145,7 +133,6 @@ export const Item = ({
             {checked ? (
               <DatePicker
                 minDate={minDate.setDate(minDate.getDate() + 3)}
-                // locale={fi}
                 selected={desireDate}
                 onChange={(date) => handleDesireDateItem(date)}
                 disabled={!checked}

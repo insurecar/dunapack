@@ -12,23 +12,15 @@ import { sendData } from "./fetching";
 import { address } from "./arrayOfSelect";
 import moment from "moment";
 
-import MaskedInput from "react-text-mask";
-import createNumberMask from "text-mask-addons/dist/createNumberMask";
-
-import InputMask from "react-input-mask";
-
 export const App = () => {
-  const [data, setData] = useState([]);
-  const [dataLength, setDataLength] = useState(0);
-  const [localState, setLocalState] = useState([]);
-  const [clearData, setClearData] = useState(false);
-  const [count, setCount] = useState(9);
+  const [data, setData] = useState([]); // загальний стейт для рендеру всіх даних!!!
+  const [dataLength, setDataLength] = useState(0); // відслідковує довжину масиву і добавляє клас
+  const [localState, setLocalState] = useState([]); //локальний стейт тільки вибраних елементів і ті які будуть відправлені на сервер
+  const [clearData, setClearData] = useState(false); // очищення даних після нажимання кнопки повторити обрані замовлення
+  const [count, setCount] = useState(9); // кількість елементів таблиці для початкового рендеру
 
   const [countOfCheckedElement, setCountOfCheckedElement] = useState(0);
   const [visibleLoader, setVisibleLoader] = useState(false);
-
-  const [testValue, setTestValue] = useState("");
-  const [maska, SetMaska] = useState("999");
 
   const notify = () =>
     toast.info(
@@ -122,7 +114,6 @@ export const App = () => {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        // pauseOnHover
         toastClassName="customToast"
       />
       <div className="box__title">
